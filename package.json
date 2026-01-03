@@ -83,6 +83,7 @@
     "seed": "ts-node prisma/seed.ts"
   },
   "scripts": {
+    "build": "nest build",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "db:seed": "prisma db seed",
