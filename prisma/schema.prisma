@@ -29,11 +29,9 @@ generator client {
 // Enums
 // --------------------------------------
 
-/**
- * Defines the available user roles.
- *
- * Used for role-based access control (RBAC).
- */
+/// Defines the available user roles.
+///
+/// Used for role-based access control (RBAC).
 enum Role {
   USER
   ADMIN
@@ -43,28 +41,26 @@ enum Role {
 // Models
 // --------------------------------------
 
-/**
- * Represents an application user.
- */
+/// Represents an application user.
 model User {
   // Unique identifier for the user (UUID)
-  id                String   @id @default(uuid())
+  id               String   @id @default(uuid())
 
   // User email address (must be unique)
-  email             String   @unique
+  email            String   @unique
 
   // Hashed password (never store plain-text passwords)
-  passwordHash      String
+  passwordHash     String
 
   // User role for authorization
-  role              Role     @default(USER)
+  role             Role     @default(USER)
 
   // Account balance
-  balance           Decimal  @default(0)
+  balance          Decimal  @default(0)
 
   // Hashed refresh token for JWT authentication
-  refreshTokenHash  String?
+  refreshTokenHash String?
 
   // Timestamp when the user was created
-  createdAt         DateTime @default(now())
+  createdAt        DateTime @default(now())
 }
