@@ -1,29 +1,70 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// Prisma schema definition file.
+//
+// This file defines the database connection, client generation,
+// enums, and data models used by the application.
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+// Learn more about Prisma schemas:
+// https://pris.ly/d/prisma-schema
 
+// --------------------------------------
+// Database configuration
+// --------------------------------------
 datasource db {
+  // Database provider (PostgreSQL)
   provider = "postgresql"
+
+  // Connection string loaded from environment variables
   url      = env("DATABASE_URL")
 }
 
+// --------------------------------------
+// Prisma Client generator
+// --------------------------------------
 generator client {
+  // Generates the Prisma Client for JavaScript / TypeScript
   provider = "prisma-client-js"
 }
 
+// --------------------------------------
+// Enums
+// --------------------------------------
+
+/**
+ * Defines the available user roles.
+ *
+ * Used for role-based access control (RBAC).
+ */
 enum Role {
   USER
   ADMIN
 }
 
+// --------------------------------------
+// Models
+// --------------------------------------
+
+/**
+ * Represents an application user.
+ */
 model User {
+  // Unique identifier for the user (UUID)
   id                String   @id @default(uuid())
+
+  // User email address (must be unique)
   email             String   @unique
+
+  // Hashed password (never store plain-text passwords)
   passwordHash      String
+
+  // User role for authorization
   role              Role     @default(USER)
+
+  // Account balance
   balance           Decimal  @default(0)
-  refreshTokenHash  String? 
+
+  // Hashed refresh token for JWT authentication
+  refreshTokenHash  String?
+
+  // Timestamp when the user was created
   createdAt         DateTime @default(now())
 }
