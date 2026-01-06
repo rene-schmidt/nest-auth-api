@@ -8,17 +8,13 @@ This project serves as a clean and scalable backend foundation with secure authe
 
 ## 🟢 Live Demo
 
-You can try the realtime messaging system in action here:
+You can try the authentification system in action here:
 
 👉 **Live Demo:** https://rscoding.dev/projects/nestjs/demo
 
 The demo showcases:
-- Realtime messaging via WebSockets (Socket.IO)
 - JWT-based authentication
-- Channel access control (`general` / `support`)
-- Message persistence and live updates
-
-> Note: Some features (e.g. admin actions) may require an ADMIN account.
+- Live JSON outputs
 
 ---
 
