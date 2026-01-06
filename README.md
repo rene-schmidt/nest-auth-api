@@ -52,26 +52,27 @@ This project serves as a clean and scalable backend foundation with secure authe
 
 ## 📁 Project Structure
 
+```text
 src/
-├── auth/
-│   ├── auth.controller.ts
-│   ├── auth.service.ts
-│   ├── guards/
-│   │   ├── jwt-auth.guard.ts
-│   │   └── roles.guard.ts
-│   ├── decorators/
-│   │   └── roles.decorator.ts
-│   └── strategies/
-│       └── jwt.strategy.ts
-├── users/
-│   ├── users.controller.ts
-│   └── users.service.ts
 ├── admin/
 │   ├── admin.controller.ts
 │   └── admin.service.ts
+├── auth/
+│   ├── decorators/
+│   │   └── roles.decorator.ts
+│   ├── guards/
+│   │   ├── jwt-auth.guard.ts
+│   │   └── roles.guard.ts
+│   ├── strategies/
+│   │   └── jwt.strategy.ts
+│   ├── auth.controller.ts
+│   └── auth.service.ts
 ├── prisma/
 │   ├── prisma.service.ts
 │   └── schema.prisma
+├── users/
+│   ├── users.controller.ts
+│   └── users.service.ts
 └── main.ts
 
 ---
@@ -113,15 +114,12 @@ npm install
 ## 🗄️ Database Setup (Prisma)
 
 Generate Prisma Client:
-
 npx prisma generate
 
 Run database migrations:
-
 npx prisma migrate dev --name init
 
 (Optional) Open Prisma Studio:
-
 npx prisma studio
 
 ---
@@ -129,19 +127,15 @@ npx prisma studio
 ## ▶️ Running the Application
 
 Development mode:
-
 npm run start
 
 Watch mode:
-
 npm run start:dev
 
 Production mode:
-
 npm run start:prod
 
 Server runs on:
-
 http://localhost:3000
 
 ---
@@ -149,23 +143,18 @@ http://localhost:3000
 ## 🔑 Authentication Flow
 
 Register a user:
-
 POST /auth/register
 
 Login a user:
-
 POST /auth/login
 
 Authenticated requests:
-
 Authorization: Bearer <access_token>
 
 Refresh tokens:
-
 POST /auth/refresh
 
 Logout:
-
 POST /auth/logout
 
 ---
